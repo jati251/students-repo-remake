@@ -1,21 +1,23 @@
-// // src/routes/AppRoutes.tsx
-// import React from "react";
-// import { Routes, Route } from "react-router-dom";
-// import HomePage from "../pages/HomePage";
-// import LoginPage from "../pages/LoginPage";
-// import DashboardLayout from "../pages/DashboardPage";
-// import NotFoundPage from "../pages/NotFoundPage";
+// src/routes/AppRoutes.tsx
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
-// const AppRoutes = () => (
-//   <Routes>
-//     <Route path="/" element={<HomePage />} />
-//     <Route path="/login" element={<LoginPage />} />
-//     <Route path="/dashboard" element={<DashboardLayout />}>
-//       <Route index element={<DashboardHome />} />
-//       <Route path="settings" element={<DashboardSettings />} />
-//     </Route>
-//     <Route path="*" element={<NotFoundPage />} />
-//   </Routes>
-// );
+import LoginPage from "../containers/pages/LoginPage";
+import HomePage from "../containers/pages/HomePage";
+import DashboardPage from "../containers/pages/Dashboard";
+import NotFoundPage from "../containers/pages/NotFoundPage";
 
-// export default AppRoutes;
+const AppRoutes = () => (
+  <Routes>
+    <Route path="/" element={<HomePage />} />
+    <Route path="/login" element={<LoginPage />} />
+    {/* <Route path="/dashboard" element={<DashboardLayout />}>
+      <Route index element={<DashboardHome />} />
+      <Route path="settings" element={<DashboardSettings />} />
+    </Route> */}
+    <Route path="/dashboard" element={<DashboardPage />} />
+    <Route path="*" element={<NotFoundPage />} />
+  </Routes>
+);
+
+export default AppRoutes;
