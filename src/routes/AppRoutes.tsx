@@ -1,5 +1,5 @@
 // src/routes/AppRoutes.tsx
-import React from "react";
+// import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import LoginPage from "../containers/pages/LoginPage";
