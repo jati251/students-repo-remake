@@ -2,15 +2,13 @@
 // import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import LoginPage from "../containers/pages/LoginPage";
-import HomePage from "../containers/pages/HomePage";
 import DashboardPage from "../containers/pages/Dashboard";
 import NotFoundPage from "../containers/pages/NotFoundPage";
+import LoginPage from "../containers/pages/LoginPage";
 
 const AppRoutes = () => (
   <Routes>
-    <Route path="/" element={<HomePage />} />
-    <Route path="/login" element={<LoginPage />} />
+    <Route path="/" element={<LoginPage />} />
     {/* <Route path="/dashboard" element={<DashboardLayout />}>
       <Route index element={<DashboardHome />} />
       <Route path="settings" element={<DashboardSettings />} />
