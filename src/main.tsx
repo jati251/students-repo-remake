@@ -12,7 +12,7 @@ import Tailwind from "primereact/passthrough/tailwind";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <PrimeReactProvider value={{ unstyled: true, pt: Tailwind }}>
+    <PrimeReactProvider value={{ unstyled: true, pt: Tailwind, ripple: true }}>
       <BrowserRouter>
         <AppRoutes />
       </BrowserRouter>
