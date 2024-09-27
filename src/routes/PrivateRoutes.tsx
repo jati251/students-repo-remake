@@ -1,15 +1,16 @@
-// // src/routes/PrivateRoutes.tsx
-// import React from 'react';
-// import { Route, Navigate } from 'react-router-dom';
+import React from "react";
+import { Navigate } from "react-router-dom";
 
-// const PrivateRoute = ({ element, ...rest }) => {
-//   const isAuthenticated = // logic to check authentication
-//   return (
-//     <Route
-//       {...rest}
-//       element={isAuthenticated ? element : <Navigate to="/login" />}
-//     />
-//   );
-// };
+interface PrivateRouteProps {
+  children: React.ReactNode;
+}
 
-// export default PrivateRoute;
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
+  // Check if token exists in localStorage
+  const token = localStorage.getItem("authToken");
+
+  // If token exists, allow access to the route, otherwise redirect to login
+  return token ? <>{children}</> : <Navigate to="/login" />;
+};
+
+export default PrivateRoute;
