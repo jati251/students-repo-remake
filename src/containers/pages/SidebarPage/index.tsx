@@ -100,24 +100,14 @@ const SidebarPage: React.FC = () => {
               )}
             </li>
           ))}
-          <li>
-            <NavLink
-              onClick={() => localStorage.removeItem("authToken")}
-              to="/login"
-              className={({ isActive }) =>
-                isActive
-                  ? "bg-[#2575D3] px-6 py-4 block my-2 rounded-3xl"
-                  : "px-6 py-4 block my-2 hover:bg-[#14569E] rounded-3xl"
-              }
-            >
-              Logout
-            </NavLink>
-          </li>
         </ul>
       </nav>
 
       {/* Main Content */}
-      <div className="w-full bg-[#F2F6F7] p-6 overflow-y-auto">
+      <div
+        id="main-content"
+        className="w-full bg-[#F2F6F7] p-6 overflow-y-auto"
+      >
         <Outlet />
       </div>
     </div>

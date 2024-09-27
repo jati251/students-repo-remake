@@ -1,29 +1,73 @@
 // AvatarTopRight.tsx
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Avatar } from "primereact/avatar";
 import { OverlayPanel } from "primereact/overlaypanel";
 
 const AvatarTopRight: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem("authToken");
-    window.location.reload(); // Or redirect to login page
+    window.location.reload();
   };
   const menuAvatar = useRef<OverlayPanel>(null);
 
+  const [isVisible, setIsVisible] = useState(true);
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+
+  useEffect(() => {
+    const scrollableElement = document.getElementById("main-content") || window;
+
+    const handleScroll = () => {
+      const scrolledBeyondThreshold =
+        scrollableElement instanceof Window
+          ? scrollableElement.scrollY > 30
+          : scrollableElement.scrollTop > 30;
+
+      if (scrolledBeyondThreshold) {
+        setIsVisible(false);
+        if (menuAvatar.current?.isVisible()) {
+          menuAvatar.current.hide();
+          setIsOverlayVisible(false);
+        }
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    scrollableElement.addEventListener("scroll", handleScroll);
+
+    return () => {
+      scrollableElement.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const toggleOverlay = (event: React.MouseEvent) => {
+    if (isOverlayVisible) {
+      menuAvatar.current?.hide();
+      setIsOverlayVisible(false);
+    } else {
+      menuAvatar.current?.show(event, event.currentTarget);
+      setIsOverlayVisible(true);
+    }
+  };
+
   return (
     <>
-      <div className="fixed top-7 right-7 gap-4 bg-yellow-500 rounded-full shadow-lg p-3 flex flex-col items-center">
+      <div
+        className={`z-50 fixed top-7 right-7 gap-4 bg-yellow-500 rounded-full shadow-lg p-3 flex flex-col items-center transition-opacity duration-300 ease-in-out ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
         <Avatar
-          onClick={(event) => menuAvatar?.current?.toggle(event)}
+          onClick={toggleOverlay}
           image="https://i.pinimg.com/originals/b2/ae/57/b2ae57d690edfcf09de7dadffc521052.jpg"
           style={{
             width: "50px",
             height: "50px",
-            borderRadius: "50%", // Forces the avatar to be a perfect circle
-            overflow: "hidden", // Ensures that the image is clipped if necessary
+            borderRadius: "50%",
+            overflow: "hidden",
             cursor: "pointer",
-            objectFit: "cover", // Ensures the image is cropped to fit the container
+            objectFit: "cover",
           }}
         />
 
@@ -31,19 +75,18 @@ const AvatarTopRight: React.FC = () => {
           onClick={handleLogout}
           icon="pi pi-sign-out"
           shape="circle"
-          className="rounded-full cursor-pointer bg-yellow-400 font-bold hover:bg-yellow-600"
+          className="rounded-full cursor-pointer bg-[#fecc35b2] font-bold hover:bg-yellow-600"
           style={{
             width: "50px",
             height: "50px",
           }}
         />
       </div>
-      {/* Popup with List */}
 
       <OverlayPanel
         ref={menuAvatar}
-        className="animate-fade-in rounded-3xl max-w-[200px] w-full flex flex-col"
-        style={{ transform: "translateX(-80px)", opacity: 0 }}
+        className="animate-fade-in rounded-[14px] max-w-[230px] w-full flex flex-col "
+        style={{ transform: "translateX(-75px)" }}
       >
         <ul className="p-4">
           <div className="mb-5">
@@ -51,11 +94,11 @@ const AvatarTopRight: React.FC = () => {
             <p className="text-sm text-gray-600">180710242242</p>
           </div>
           <li className="flex items-center py-2 cursor-pointer hover:text-blue-500">
-            <i className="pi pi-book mr-2"></i>
+            <i className="pi pi-user mr-2"></i>
             Data Diri
           </li>
           <li className="flex items-center py-2 cursor-pointer hover:text-blue-500">
-            <i className="pi pi-user mr-2"></i>
+            <i className="pi pi-unlock mr-2"></i>
             Ganti Password
           </li>
           <li className="flex items-center py-2 cursor-pointer hover:text-blue-500">

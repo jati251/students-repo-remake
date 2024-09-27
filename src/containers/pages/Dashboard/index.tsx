@@ -2,7 +2,7 @@ import React from "react";
 
 const DashboardPage = () => {
   return (
-    <div className="p-6">
+    <div className="p-6 bg-gray-200 shadow-3xl">
       <h1 className="text-3xl font-bold mb-4">Dashboard Page</h1>
 
       {/* Long content to test the avatar */}
@@ -46,6 +46,49 @@ const DashboardPage = () => {
           Sed id nibh id turpis consequat venenatis. Quisque sagittis ipsum
           nisl, nec gravida risus dapibus id. Integer nec orci vel quam posuere
           blandit in vitae tortor.
+        </p>
+        <p>
+          Suspendisse potenti. Duis varius arcu ut risus posuere, ac hendrerit
+          sapien bibendum. Nulla at malesuada ligula. Sed egestas augue vel
+          venenatis tincidunt. Donec et est sem. Morbi sit amet vestibulum nisl.
+        </p>
+        <p>
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+          posuere cubilia curae; Sed id sagittis nisi, ac aliquam libero. Mauris
+          ullamcorper purus id tortor iaculis, sed scelerisque libero
+          vestibulum.
+        </p>
+        <p>
+          In ac consequat ligula, vel ultricies magna. Phasellus fermentum dolor
+          sit amet erat hendrerit, ac euismod purus blandit. Nam feugiat posuere
+          lectus in dictum.
+        </p>
+        <p>
+          Cras a scelerisque elit. Duis auctor, nulla vel hendrerit bibendum,
+          odio nisl dignissim ligula, non dignissim ligula nulla et metus.
+        </p>
+        <p>
+          Proin a nisl et massa laoreet sollicitudin sit amet vitae eros. Fusce
+          fermentum vitae eros at pharetra. Nulla faucibus nulla quis nisi
+          fringilla, vitae rutrum neque mattis.
+        </p>
+        <p>
+          Integer sodales nec odio non bibendum. Nam nec velit sit amet quam
+          vulputate convallis ac id metus. Ut dapibus mi sit amet dui tincidunt,
+          a malesuada metus luctus.
+        </p>
+        <p>
+          Quisque tincidunt, leo sed consequat volutpat, massa dui varius augue,
+          et efficitur sapien orci non nisl. Sed vel tincidunt arcu.
+        </p>
+        <p>
+          Sed dictum fermentum orci, nec consectetur justo. Nam vel malesuada
+          leo. Donec vel tortor eu erat tempor laoreet ac in nulla.
+        </p>
+        <p>
+          In at lectus vitae ipsum ullamcorper sagittis. Fusce quis neque
+          scelerisque, fringilla eros non, tempor nunc. Proin tincidunt tortor
+          vitae eros convallis interdum.
         </p>
         <p>
           Suspendisse potenti. Duis varius arcu ut risus posuere, ac hendrerit
