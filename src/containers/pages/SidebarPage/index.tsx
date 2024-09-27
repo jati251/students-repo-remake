@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { featureLists } from "./list";
 
+import AvatarTopRight from "../../../components/Avatar";
+
 const SidebarPage: React.FC = () => {
   const [expandedItems, setExpandedItems] = useState<number[]>([]);
 
@@ -17,7 +19,9 @@ const SidebarPage: React.FC = () => {
 
   return (
     <div className="flex h-screen">
-      <nav className="w-64 bg-gradient-to-r from-[#14569E] to-[#13467c] text-white flex flex-col items-center ">
+      <AvatarTopRight />
+
+      <nav className="w-[35vh] bg-gradient-to-r from-[#14569E] to-[#13467c] text-white flex flex-col items-center ">
         {/* Logo and text container */}
         <div className="flex justify-center items-center mt-8 gap-2 sticky z-10 cursor-pointer">
           <img
@@ -113,7 +117,7 @@ const SidebarPage: React.FC = () => {
       </nav>
 
       {/* Main Content */}
-      <div className="flex-grow bg-gray-100 p-6">
+      <div className="w-full bg-[#F2F6F7] p-6 overflow-y-auto">
         <Outlet />
       </div>
     </div>

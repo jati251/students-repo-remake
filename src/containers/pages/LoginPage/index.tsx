@@ -11,7 +11,7 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     console.log("Form submitted");
     localStorage.setItem("authToken", "masuk");
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (
