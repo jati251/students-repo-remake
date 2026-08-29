@@ -16,7 +16,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
-      <div className="flex flex-col lg:flex-row w-full max-w-[1000px] h-full lg:h-auto shadow-lg rounded-2xl overflow-hidden">
+      <div className="flex flex-col lg:flex-row w-full max-w-[1200px] h-full lg:h-auto shadow-lg rounded-2xl overflow-hidden">
         {/* Left Section */}
         <div className="flex-1 flex flex-col bg-white p-6 lg:p-10 relative">
           {/* Logo */}

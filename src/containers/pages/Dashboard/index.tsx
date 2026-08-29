@@ -1,10 +1,11 @@
 import React from "react";
+import StudentCard from "../../../components/StudentCard";
 
 const DashboardPage = () => {
   return (
     <div className="p-6 bg-gray-200 shadow-3xl">
       <h1 className="text-3xl font-bold mb-4">Dashboard Page</h1>
-
+      <StudentCard />
       {/* Long content to test the avatar */}
       <div className="space-y-4">
         <p>
